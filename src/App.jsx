@@ -1,10 +1,10 @@
-import { useState } from "react";
 import "./App.css";
 import { Movies } from "./components/Movies";
 import responseMovies from "./mocks/with-results.json";
+import { useSearch } from "./hooks/useSearch";
 
 function App() {
-  const [search, updateSearch] = useState("");
+  const { search, updateSearch } = useSearch();
   const movies = responseMovies.Search;
 
   const mappedMovies = movies.map((movie) => {
@@ -32,6 +32,7 @@ function App() {
         <h1>Buscador películas</h1>
         <form onSubmit={handleSubmit}>
           <input
+            onChange={handleChange}
             name="query"
             value={search}
             type="text"
