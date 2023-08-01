@@ -1,20 +1,10 @@
 import "./App.css";
 import { Movies } from "./components/Movies";
-import responseMovies from "./mocks/with-results.json";
 import { useSearch } from "./hooks/useSearch";
 
 function App() {
   const { search, updateSearch } = useSearch();
-  const movies = responseMovies.Search;
-
-  const mappedMovies = movies.map((movie) => {
-    return {
-      id: movie.imdbID,
-      title: movie.Title,
-      year: movie.Year,
-      poster: movie.Poster,
-    };
-  });
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
